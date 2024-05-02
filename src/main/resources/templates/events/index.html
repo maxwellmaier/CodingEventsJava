@@ -7,14 +7,21 @@
 <nav th:replace="fragments ::  navigation"></nav>
 
 <p th:unless="${events} and ${events.size()}">No Events!</p>
+
+<!--<img th:src="coding.img">-->
 <table class="table">
    <thead>
       <tr>
          <th>Name</th>
+         <th>Description</th>
+         <th>Location</th>
+
       </tr>
    </thead>
    <tr th:each="event : ${events}">
-       <td th:text="${event}"></td>
+       <td th:text="${event.key}"></td>
+       <td th:text="${event.value}"></td>
+      <td th:replace="fragments  ::  address"></td>
    </tr>
 </table>
 </body>
